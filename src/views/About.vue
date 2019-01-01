@@ -3,3 +3,21 @@
     <h1>This is an about page</h1>
   </div>
 </template>
+<script>
+  export default {
+    name: 'about',
+    components: {}
+  }
+</script>
+<style type="scss" scoped>
+  .home {
+    background: $red;
+
+  }
+</style>
+<style type="scss">
+  .home {
+    background: $red;
+
+  }
+</style>

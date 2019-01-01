@@ -16,3 +16,15 @@ export default {
   }
 }
 </script>
+<style type="scss" scoped>
+  .home{
+    background: $red;
+
+  }
+</style>
+<style type="scss">
+  .home{
+    background: $red;
+
+  }
+</style>
