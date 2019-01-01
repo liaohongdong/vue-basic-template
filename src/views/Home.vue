@@ -16,15 +16,13 @@ export default {
   }
 }
 </script>
-<style type="scss" scoped>
-  .home{
-    background: $red;
-
-  }
+@import "./src/variable/var.styl"
+<style lang="stylus" scoped>
+  .home
+    color: $cred
 </style>
-<style type="scss">
-  .home{
-    background: $red;
+<style lang="stylus">
+.home
+  color: $cred
 
-  }
 </style>
