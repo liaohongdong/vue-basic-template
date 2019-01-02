@@ -1,0 +1,6 @@
+$cred: red;
+$bred: red;
+
+@mixin borderR($px) {
+  border-radius: $px;
+}
