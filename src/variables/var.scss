@@ -1,6 +1,10 @@
-$cred: red;
+$cred: #999;
 $bred: red;
 
 @mixin borderR($px) {
+  width: 30px;
+  height: 30px;
   border-radius: $px;
+  background: $bred;
+  color: $cred;
 }
