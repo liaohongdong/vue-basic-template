@@ -9,15 +9,13 @@
     components: {}
   }
 </script>
-<style type="scss" scoped>
-  .home {
-    background: $red;
-
+<style lang="scss" scoped>
+  .about {
+    background: $cred;
   }
 </style>
-<style type="scss">
-  .home {
-    background: $red;
-
+<style lang="scss">
+  .about {
+    background: $bred;
   }
 </style>

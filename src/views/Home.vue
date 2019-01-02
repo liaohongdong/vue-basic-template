@@ -12,6 +12,26 @@ export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      title: '...titles'
+    }
+  },
+  metaInfo: {
+    title: 666,
+    titleTemplate: '%s - by vue-meta',
+    meta: [
+      { charset: 'utf-8' }
+    ],
+    htmlAttrs: {
+      lang: 'zh'
+    },
+    script: [{
+      innerHTML: 'console.log("hello hello!")',
+      type: 'text/javascript'
+    }],
+    __dangerouslyDisableSanitizers: ['script']
   }
 }
 </script>
