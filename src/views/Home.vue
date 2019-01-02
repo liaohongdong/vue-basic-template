@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
@@ -17,15 +16,15 @@ export default {
 }
 </script>
 
-<!--<style lang="scss" scoped>-->
-<!--.home{-->
-  <!--color: $cred;-->
-  <!--// @include borderR(30px);-->
-<!--}-->
-<!--</style>-->
-<!--<style lang="scss">-->
+<style lang="scss" scoped>
+.home{
+  color: $cred;
+  // @include borderR(30px);
+}
+</style>
+<style lang="scss">
 
-<!--</style>-->
+</style>
 
 <!--<style lang="stylus" scoped>-->
   <!--.home-->
@@ -36,9 +35,9 @@ export default {
   <!--color: $cred-->
 <!--</style>-->
 
-<style lang="less" scoped>
-.home{
-  color: @cred;
-  borderR('#ddd', '50px')
-}
-</style>
+<!--<style lang="less" scoped>-->
+<!--.home{-->
+  <!--color: @cred;-->
+  <!--.borderR('#ddd', '50px');-->
+<!--}-->
+<!--</style>-->

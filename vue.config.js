@@ -46,7 +46,6 @@ module.exports = {
   //在生成的 HTML 中的 <link rel="stylesheet"> 和 <script> 标签上启用 Subresource Integrity (SRI)。
   //如果你构建后的文件是部署在 CDN 上的，启用该选项可以提供额外的安全性, 这个标签是为了防止 CDN 篡改 javascript 用的。 。
   integrity: false,
-
   // webpack配置
   // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
   // css相关配置
@@ -62,8 +61,8 @@ module.exports = {
     // css预设器配置项
     loaderOptions: {
       css: {
-        // localIdentName: '[name]-[hash]',
-        // camelCase: 'only'
+        localIdentName: '[name]-[hash]',
+        camelCase: 'only'
       },
       //比如你可以这样向所有 Sass 样式传入共享的全局变量：
       sass: {
@@ -82,18 +81,11 @@ module.exports = {
         // resources: path.resolve(__dirname, './src/variable/var.less')
       },
       postcss: {},
-      //如果你想去掉文件名中的 .module，可以设置 vue.config.js 中的 css.modules 为 true
-      // 启用 CSS modules for all css / pre-processor files.
-      modules: false,
-    }
-    // webpack-dev-server 相关配置
-    // devServer: {},
-    // 第三方插件配置
-    // pluginOptions: {
-    // ...
-    // }
+    },
+    //如果你想去掉文件名中的 .module，可以设置 vue.config.js 中的 css.modules 为 true
+    // 启用 CSS modules for all css / pre-processor files.
+    modules: false
   },
-
   //调整 webpack 配置最简单的方式就是在 vue.config.js 中的 configureWebpack 选项提供一个对象：
   //如果你需要基于环境有条件地配置行为，或者想要直接修改配置，
   //那就换成一个函数 (该函数会在环境变量被设置之后懒执行)。
@@ -120,7 +112,6 @@ module.exports = {
       }
     });
   },
-
   // 链式调用
   //（高级用法）这是一个一个函数，这个库提供了一个 webpack 原始配置的上层抽象，
   //使其可以定义具名的 loader 规则和具名插件，并有机会在后期进入这些规则并对它们的选项进行修改。
@@ -134,20 +125,28 @@ module.exports = {
         // console.log(options);
         return options
       })
-    console.log(config.module.rules);
+    // console.log(config.module.rules);
     // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
     // types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
   },
-
+  // 第三方插件配置
   pluginOptions: {
     'style-resources-loader': {
-      preProcessor: 'stylus',
-      patterns: []
+      preProcessor: 'less',
+      patterns: [
+        path.resolve(__dirname, './src/variables/var.less')
+      ]
     }
-  }
+  },
+  // webpack-dev-server 相关配置
+  // devServer: {},
+  // 第三方插件配置
+  // pluginOptions: {
+  // ...
+  // }
 }
 
-function addStyleResource (rule) {
+function addStyleResource(rule) {
   rule.use('style-resource')
     .loader('style-resources-loader')
     .options({
