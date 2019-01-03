@@ -7,6 +7,7 @@
 
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
+import { home } from '@/api/home'
 
 export default {
   name: 'home',
@@ -32,7 +33,16 @@ export default {
       type: 'text/javascript'
     }],
     __dangerouslyDisableSanitizers: ['script']
-  }
+  },
+  created(){
+
+  },
+  destroyed(){
+
+  },
+  mounted(){
+
+  },
 }
 </script>
 
