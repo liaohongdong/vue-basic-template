@@ -120,13 +120,16 @@ module.exports = {
   //允许对内部的 webpack 配置进行更细粒度的修改。
   chainWebpack: config => {
     config.module
-      .rule('vue')
-      .use('vue-loader')
-      .loader('vue-loader')
-      .tap(options => {
+      .rule('vue').use('vue-loader').loader('vue-loader').tap(options => {
         // console.log(options);
         return options
       })
+    config.module
+      .rule('images').use('url-loader').loader('url-loader').tap(options => {
+        Object.assign(options, { limit: 1024 * 10 * 10}) // 1024字节 10k * 10k = 100k
+        console.log(options);
+      return options
+    })
     // console.log(config.module.rules);
     // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
     // types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
@@ -134,7 +137,7 @@ module.exports = {
       .set('@', path.resolve(__dirname, './src'))
       .set('@~', path.resolve(__dirname, './src/assets'))
       .set('components', path.resolve(__dirname, './src/components'))
-    console.log(config.resolve.alias);
+    // console.log(config.module.rule('images'));
   },
   parallel: require('os').cpus().length > 1, // 构建时开启多进程处理babel编译
   // 第三方插件配置
