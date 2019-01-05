@@ -10,7 +10,8 @@ module.exports = {
   // 输出文件目录
   //当运行 vue-cli-service build 时生成的生产环境构建文件的目录。
   //注意目标目录在构建之前会被清除 (构建时传入 --no-clean 可关闭该行为)。
-  outputDir: 'dist',
+  // outputDir: 'dist',
+  outputDir: process.env.outputDir,
 
   //放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录
   assetsDir: 'static',
@@ -101,16 +102,17 @@ module.exports = {
       // console.log(__dirname, 111122);
       // console.log(config.module.rules);
     }
-    Object.assign(config, {
-      // 开发生产共同配置
-      resolve: {
-        alias: {
-          '@': path.resolve(__dirname, './src'),
-          'components': path.resolve(__dirname, './src/components'),
-          '~': path.resolve(__dirname, './src/assets')
-        }
-      }
-    });
+    // Object.assign(config, {
+    //   开发生产共同配置
+    //   resolve: {
+    //     alias: {
+    //       '@': path.resolve(__dirname, './src'),
+    //       'components': path.resolve(__dirname, './src/components'),
+    //       '~': path.resolve(__dirname, './src/assets')
+    //     }
+    //   }
+    // })
+    // console.log(config.resolve.alias)
   },
   // 链式调用
   //（高级用法）这是一个一个函数，这个库提供了一个 webpack 原始配置的上层抽象，
@@ -128,7 +130,13 @@ module.exports = {
     // console.log(config.module.rules);
     // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
     // types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
+    config.resolve.alias
+      .set('@', path.resolve(__dirname, './src'))
+      .set('@~', path.resolve(__dirname, './src/assets'))
+      .set('components', path.resolve(__dirname, './src/components'))
+    console.log(config.resolve.alias);
   },
+  parallel: require('os').cpus().length > 1, // 构建时开启多进程处理babel编译
   // 第三方插件配置
   pluginOptions: {
     'style-resources-loader': {

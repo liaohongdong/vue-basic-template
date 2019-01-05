@@ -1,13 +1,16 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
+    <img alt="Vue logo" src="@/assets/logo.png" style="width: 30px; height: 30px;">
+    <img alt="Vue logo" src="@~/logo.png" style="width: 30px; height: 30px;">
+    <img alt="Vue logo" src="@~/logo.png" style="width: 30px; height: 30px;">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
-import { home } from '@/api/home'
+// import { home } from '@/api/home'
 
 export default {
   name: 'home',
@@ -16,23 +19,25 @@ export default {
   },
   data() {
     return {
-      title: '...titles'
+      title: 'liao'
     }
   },
-  metaInfo: {
-    title: 666,
-    titleTemplate: '%s - by vue-meta',
-    meta: [
-      { charset: 'utf-8' }
-    ],
-    htmlAttrs: {
-      lang: 'zh'
-    },
-    script: [{
-      innerHTML: 'console.log("hello hello!")',
-      type: 'text/javascript'
-    }],
-    __dangerouslyDisableSanitizers: ['script']
+  metaInfo() {
+    return {
+      title: this.title,
+      titleTemplate: '%s-vue-meta',
+      meta: [
+        { charset: 'utf-8' }
+      ],
+      htmlAttrs: {
+        lang: 'zh'
+      },
+      script: [{
+        innerHTML: 'console.log("hello hello!")',
+        type: 'text/javascript'
+      }],
+      __dangerouslyDisableSanitizers: ['script']
+    }
   },
   created(){
 
