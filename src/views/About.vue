@@ -11,11 +11,11 @@
 </script>
 <style lang="scss" scoped>
   .about {
-    background: $cred;
+    //background: $cred;
   }
 </style>
 <style lang="scss">
   .about {
-    background: $bred;
+   // background: $bred;
   }
 </style>

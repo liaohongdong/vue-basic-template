@@ -23,3 +23,7 @@
     &.router-link-exact-active
       color #42b983
 </style>
+
+<style lang="less">
+@import '~vux/src/styles/reset.less';
+</style>

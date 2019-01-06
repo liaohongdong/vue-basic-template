@@ -8,12 +8,15 @@
 
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
+import { XHeader, Tabbar } from 'vux'
 // import { home } from '@/api/home'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    HelloWorld,
+    XHeader,
+    Tabbar
   },
   data() {
     return {
@@ -51,8 +54,8 @@ export default {
 
 <style lang="scss" scoped>
 .home{
-  color: $cred;
-  // @include borderR(30px);
+  //color: $cred;
+  //@include borderR(30px);
 }
 </style>
 <style lang="scss">

@@ -1,4 +1,8 @@
 const path = require('path')
+const vConsolePlugin = require('vconsole-webpack-plugin'); // 引入 移动端模拟开发者工具 插件 （另：https://github.com/liriliri/eruda）
+const CompressionPlugin = require('compression-webpack-plugin'); //Gzip
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; //Webpack包文件分析器
+const vuxLoader = require('vux-loader')
 module.exports = {
   // 基本路径
   //部署应用时的基本 URL。默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上，
@@ -68,7 +72,7 @@ module.exports = {
       //比如你可以这样向所有 Sass 样式传入共享的全局变量：
       sass: {
         // @/ 是 src/ 的别名
-        // 所以这里假设你有 `src/variables.scss` 这个文件
+        // 所以这里假设你有 `src/variables.scss` 这个文件 $baseUrl: "/";
         data: `@import "@/variables/var.scss";`
       },
       stylus: {
@@ -92,16 +96,38 @@ module.exports = {
   //那就换成一个函数 (该函数会在环境变量被设置之后懒执行)。
   //该方法的第一个参数会收到已经解析好的配置。在函数内，你可以直接修改配置，或者返回一个将会被合并的对象：
   configureWebpack: config => {
-    if (process.env.NODE_ENV === 'production') {
-      // 为生产环境修改配置...
-      config.mode = 'production'
-    } else {
-      // 为开发环境修改配置...
-      config.mode = 'development'
-      // console.log(config);
-      // console.log(__dirname, 111122);
-      // console.log(config.module.rules);
-    }
+    //生产and测试环境
+    let pluginsPro = [
+      new CompressionPlugin({ //文件开启Gzip，也可以通过服务端(如：nginx)(https://github.com/webpack-contrib/compression-webpack-plugin)
+        filename: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: new RegExp('\\.(' + ['js', 'css'].join('|') + ')$', ),
+        threshold: 8192,
+        minRatio: 0.8,
+      }),
+      //	Webpack包文件分析器(https://github.com/webpack-contrib/webpack-bundle-analyzer)
+      new BundleAnalyzerPlugin(),
+    ];
+    //开发环境
+    let pluginsDev = [
+      //移动端模拟开发者工具(https://github.com/diamont1001/vconsole-webpack-plugin  https://github.com/Tencent/vConsole)
+      new vConsolePlugin({
+        filter: [], // 需要过滤的入口文件
+        enable: true // 发布代码前记得改回 false
+      }),
+    ]
+
+    // yarn add vue-loader@14.2.2 -D
+    // require('vux-loader').merge(config, {
+    //   plugins: ['vux-ui']
+    // })
+
+    vuxLoader.merge(config, {
+      options: {},
+      // plugins: ['vux-ui', 'duplicate-style']
+      plugins: ['vux-ui']
+    })
+
     // Object.assign(config, {
     //   开发生产共同配置
     //   resolve: {
@@ -113,6 +139,16 @@ module.exports = {
     //   }
     // })
     // console.log(config.resolve.alias)
+    if (process.env.NODE_ENV === 'production') {
+      // 为生产环境修改配置...
+      config.mode = 'production'
+      config.plugins = [...config.plugins, ...pluginsPro]
+    } else {
+      // 为开发环境修改配置...
+      config.mode = 'development'
+      config.plugins = [...config.plugins, ...pluginsDev]
+    }
+
   },
   // 链式调用
   //（高级用法）这是一个一个函数，这个库提供了一个 webpack 原始配置的上层抽象，
@@ -160,12 +196,12 @@ module.exports = {
   // }
 }
 
-function addStyleResource(rule) {
-  rule.use('style-resource')
-    .loader('style-resources-loader')
-    .options({
-      patterns: [
-        path.resolve(__dirname, './src/variables/var.styl'),
-      ],
-    })
-}
+// function addStyleResource(rule) {
+//   rule.use('style-resource')
+//     .loader('style-resources-loader')
+//     .options({
+//       patterns: [
+//         path.resolve(__dirname, './src/variables/var.styl'),
+//       ],
+//     })
+// }
