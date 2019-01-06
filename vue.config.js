@@ -127,17 +127,20 @@ module.exports = {
     config.module
       .rule('images').use('url-loader').loader('url-loader').tap(options => {
         Object.assign(options, { limit: 1024 * 10 * 10}) // 1024字节 10k * 10k = 100k
-        console.log(options);
+        // console.log(options);
       return options
     })
-    // console.log(config.module.rules);
-    // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    // types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
+
     config.resolve.alias
       .set('@', path.resolve(__dirname, './src'))
       .set('@~', path.resolve(__dirname, './src/assets'))
       .set('components', path.resolve(__dirname, './src/components'))
-    // console.log(config.module.rule('images'));
+
+    // console.log(config.module
+    //   .rule('media').use('url-loader'))
+
+    // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+    // types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
   },
   parallel: require('os').cpus().length > 1, // 构建时开启多进程处理babel编译
   // 第三方插件配置
