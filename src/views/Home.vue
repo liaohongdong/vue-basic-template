@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="@/assets/logo.png" style="width: 30px; height: 30px;">
     <img alt="Vue logo" src="@~/logo.png" style="width: 30px; height: 30px;">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <x-header></x-header>
   </div>
 </template>
 
@@ -16,7 +17,6 @@ export default {
   components: {
     HelloWorld,
     XHeader,
-    Tabbar
   },
   data() {
     return {
