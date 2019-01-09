@@ -31,7 +31,8 @@ module.exports = {
   // eslint-loader 是否在保存的时候检查
   //当 lintOnSave 是一个 truthy/true 的值时，eslint-loader 在开发和生产构建下都会被启用。
   //如果你想要在生产构建时禁用 eslint-loader，你可以用如下配置：
-  lintOnSave: process.env.NODE_ENV !== 'production',
+  // lintOnSave: process.env.NODE_ENV !== 'production',
+  lintOnSave: false,
 
   //是否使用包含运行时编译器的 Vue 构建版本。
   //设置为 true 后你就可以在 Vue 组件中使用 template 选项了，但是这会让你的应用额外增加 10kb 左右。
@@ -76,9 +77,10 @@ module.exports = {
         data: `@import "@/variables/var.scss";`
       },
       stylus: {
-        import: path.resolve(__dirname, './src/variables/var.styl'),
+        // import: path.resolve(__dirname, './src/variables/var.styl'),
       },
       less: {
+        javascriptEnabled: true
         // globalVars: {
         //   color: '#ccc'
         // }
@@ -113,19 +115,14 @@ module.exports = {
       //移动端模拟开发者工具(https://github.com/diamont1001/vconsole-webpack-plugin  https://github.com/Tencent/vConsole)
       new vConsolePlugin({
         filter: [], // 需要过滤的入口文件
-        enable: true // 发布代码前记得改回 false
+        enable: false // 发布代码前记得改回 false
       }),
     ]
 
     // yarn add vue-loader@14.2.2 -D
-    // require('vux-loader').merge(config, {
-    //   plugins: ['vux-ui']
-    // })
-
     vuxLoader.merge(config, {
       options: {},
-      // plugins: ['vux-ui', 'duplicate-style']
-      plugins: ['vux-ui']
+      plugins: ['vux-ui', 'duplicate-style'] // 确保在vux-loader里使用duplicate-style插件来实现对构建css进行冗余压缩。
     })
 
     // Object.assign(config, {
@@ -172,19 +169,21 @@ module.exports = {
       .set('@~', path.resolve(__dirname, './src/assets'))
       .set('components', path.resolve(__dirname, './src/components'))
 
-    // console.log(config.module
-    //   .rule('media').use('url-loader'))
+    config.resolve.extensions
+      .add('.less')
+      .add('.scss')
+      .add('.styl')
 
-    // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    // types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
+    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+    types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
   },
   parallel: require('os').cpus().length > 1, // 构建时开启多进程处理babel编译
   // 第三方插件配置
   pluginOptions: {
     'style-resources-loader': {
-      preProcessor: 'less',
+      preProcessor: 'scss',
       patterns: [
-        path.resolve(__dirname, './src/variables/var.less')
+        path.resolve(__dirname, './src/variables/var.scss')
       ]
     }
   },
@@ -196,12 +195,12 @@ module.exports = {
   // }
 }
 
-// function addStyleResource(rule) {
-//   rule.use('style-resource')
-//     .loader('style-resources-loader')
-//     .options({
-//       patterns: [
-//         path.resolve(__dirname, './src/variables/var.styl'),
-//       ],
-//     })
-// }
+function addStyleResource (rule) {
+  rule.use('style-resource')
+    .loader('style-resources-loader')
+    .options({
+      patterns: [
+        path.resolve(__dirname, './src/variables/var.styl'),
+      ],
+    })
+}

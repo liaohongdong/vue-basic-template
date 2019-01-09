@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './router/router'
 import store from './store/store'
 // import "@babel/polyfill";
 import axios from 'axios'
 import VueMeta from 'vue-meta'
+
+const FastClick = require('fastclick')
+FastClick.attach(document.body)
 
 Vue.config.productionTip = false
 // console.log(axios.defaults);

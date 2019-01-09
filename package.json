@@ -27,6 +27,8 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "node-sass": "^4.11.0",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
     "qs": "^6.6.0",
     "sass-loader": "^7.1.0",
     "sass-resources-loader": "^2.0.0",

@@ -1,14 +1,16 @@
 <template>
   <div class="home">
+    <!--<x-header></x-header>-->
+    <!--<tabbar name="'"></tabbar>-->
     <img alt="Vue logo" src="@/assets/logo.png" style="width: 30px; height: 30px;">
     <img alt="Vue logo" src="@~/logo.png" style="width: 30px; height: 30px;">
+    123123123
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <x-header></x-header>
   </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld'
 import { XHeader, Tabbar } from 'vux'
 // import { home } from '@/api/home'
 
@@ -17,6 +19,7 @@ export default {
   components: {
     HelloWorld,
     XHeader,
+    Tabbar
   },
   data() {
     return {
@@ -53,22 +56,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../variables/var.scss";
 .home{
-  //color: $cred;
+  color: $cred;
   //@include borderR(30px);
 }
 </style>
-<style lang="scss">
+<!--<style lang="scss">-->
 
-</style>
+<!--</style>-->
 
 <!--<style lang="stylus" scoped>-->
   <!--.home-->
-    <!--color: $cred-->
+    <!--color $cred-->
 <!--</style>-->
 <!--<style lang="stylus">-->
 <!--.home-->
-  <!--color: $cred-->
+  <!--color $cred-->
 <!--</style>-->
 
 <!--<style lang="less" scoped>-->
