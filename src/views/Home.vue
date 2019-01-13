@@ -2,10 +2,10 @@
   <div class="home">
     <!--<x-header></x-header>-->
     <!--<tabbar name="'"></tabbar>-->
+    <span class="iconfont icon-quan" style="width: 100px;"></span>
     <img alt="Vue logo" src="@/assets/logo.png" style="width: 30px; height: 30px;">
     <img alt="Vue logo" src="@~/logo.png" style="width: 30px; height: 30px;">
-    123123123
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
   </div>
 </template>
 

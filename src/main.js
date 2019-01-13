@@ -5,6 +5,8 @@ import store from './store/store'
 // import "@babel/polyfill";
 import axios from 'axios'
 import VueMeta from 'vue-meta'
+import 'amfe-flexible'
+import 'lib-flexible'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)

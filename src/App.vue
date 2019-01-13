@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    123
-    <span class="iconfont icon-quan" style="width: 100px;"></span>
     <router-view class="enterView"></router-view>
     <router-view class="enterView" name="navigation" :key="key"></router-view>
   </div>

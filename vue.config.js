@@ -9,7 +9,7 @@ module.exports = {
   //例如 https://www.my-app.com/。如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。
   //例如，如果你的应用被部署在 https://www.my-app.com/my-app/，则设置 baseUrl 为 /my-app/。
   //这个值在开发环境下同样生效。如果你想把开发服务器架设在根路径，你可以使用一个条件式的值
-  baseUrl: process.env.NODE_ENV === 'production' ? '/vue/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue/' : '/',
 
   // 输出文件目录
   //当运行 vue-cli-service build 时生成的生产环境构建文件的目录。

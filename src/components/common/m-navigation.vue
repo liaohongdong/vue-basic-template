@@ -8,7 +8,7 @@
       <span class="iconfont icon-liwu"></span>
       <span class="txt">发现</span>
     </router-link>
-    <router-link :to="{name: 'home'}" class="userCenter" tag="a" active-class="active">
+    <router-link :to="{name: 'me'}" class="userCenter" tag="a" active-class="active">
       <span class="iconfont icon-wode"></span>
       <span class="txt">我的</span>
     </router-link>
@@ -23,6 +23,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../../variables/var.styl"
 .m-navigation
   *
     box-sizing border-box
@@ -31,7 +32,7 @@ export default {
   display flex
   justify-content space-around
   border-top 1px solid #EBEBEB
-  height 50px
+  /*height 50px*/
   width 100%
   background #fff
   bottom 0
@@ -44,7 +45,12 @@ export default {
     justify-content center
     flex-direction column
     align-items center
+    .iconfont
+      color #666
+      font-size 12px
     .txt
-      color $bred
+      color #666666
+      font-size 12px
+
 
 </style>

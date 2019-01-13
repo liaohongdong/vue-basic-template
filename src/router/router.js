@@ -6,9 +6,7 @@ import RouterHome from '@/router/home'
 // import Home from '../views/Home.vue'
 // import About from '../views/About.vue'
 
-
-
-const Home = () => import(/* webpackChunkName: "Home" */ '@/views/Home')
+// const Home = () => import(/* webpackChunkName: "Home" */ '@/views/Home')
 const About = () => import(/* webpackChunkName: "About" */ '@/views/About')
 // const Home = (resolve) => require(['@/views/Home'], resolve)
 // const About = (resolve) => require(['@/views/About'], resolve)
