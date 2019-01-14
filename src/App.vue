@@ -52,6 +52,7 @@ export default {
 @import '~vux/src/styles/close.less';
 @import "assets/font/iconfont.css";
 @import "~normalize.css/normalize.css";
+@import "assets/common/common.css";
 //@import "variables/var.less";
 //@import "variables/var.scss";
 //@import "variables/var.styl";

@@ -170,6 +170,7 @@ module.exports = {
       .set('components', path.resolve(__dirname, './src/components'))
 
     config.resolve.extensions
+      .add('.css')
       .add('.less')
       .add('.scss')
       .add('.styl')

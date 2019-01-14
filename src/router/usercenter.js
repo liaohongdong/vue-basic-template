@@ -1,13 +1,12 @@
-const Home = () => import(/* webpackChunkName: "Home" */ '@/views/Home')
-const About = () => import(/* webpackChunkName: "About" */ '@/views/About')
+const UserCenter = () => import(/* webpackChunkName: "Home" */ '@/views/userCenter')
 const mNavigation = () => import(/* webpackChunkName: "mNavigation" */ '@/components/common/m-navigation')
 
 const router = [
   {
-    path: '/home',
-    name: 'home',
+    path: '/userCenter',
+    name: 'userCenter',
     components: {
-      default: Home,
+      default: UserCenter,
       navigation: mNavigation
     },
     meta: {
