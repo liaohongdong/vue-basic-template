@@ -53,6 +53,7 @@ export default {
 @import "assets/font/iconfont.css";
 @import "~normalize.css/normalize.css";
 @import "assets/common/common.css";
+@import "~animate.css/animate.css";
 //@import "variables/var.less";
 //@import "variables/var.scss";
 //@import "variables/var.styl";

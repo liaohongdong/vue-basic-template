@@ -1,2 +1,16 @@
 /* 使用vw的polyfill解决方案会在用到的vw的地方添加content，会影响到img和伪元素，需要全局添加 */
 img { content: normal !important; }
+ul,li{list-style: none;}
+
+
+
+
+
+
+.row-flag{
+  height: 10px;
+  background: #EFF4FA;
+}
+.index-bottom-flag{
+  height: 50px;
+}
