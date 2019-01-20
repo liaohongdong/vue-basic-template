@@ -5,9 +5,13 @@ import store from './store/store'
 // import "@babel/polyfill";
 import axios from 'axios'
 import VueMeta from 'vue-meta'
+import vSharp from 'v-sharp'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
+
+console.log(vSharp)
+
 
 Vue.config.productionTip = false
 // console.log(axios.defaults);
@@ -15,6 +19,7 @@ Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 // vue spa title
 Vue.use(VueMeta)
+Vue.use(vSharp.Toast)
 
 window._vue = new Vue({
   router,

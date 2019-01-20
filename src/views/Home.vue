@@ -185,6 +185,7 @@ export default {
   },
   mounted(){
     this.swiper.slideTo(1, 1000, false)
+    this.$$toast('haha')
   },
   destroyed(){
 
