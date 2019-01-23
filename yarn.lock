@@ -8429,9 +8429,10 @@ v-charts@^1.19.0:
     numerify "1.2.9"
     utils-lite "0.1.10"
 
-v-sharp@1.0.17:
-  version "1.0.17"
-  resolved "http://registry.npm.taobao.org/v-sharp/download/v-sharp-1.0.17.tgz#17e79473828b77316e8c1270b471d6dd7c0dad3f"
+v-sharp@1.0.20:
+  version "1.0.20"
+  resolved "http://registry.npm.taobao.org/v-sharp/download/v-sharp-1.0.20.tgz#5f4203f7f51c95b8823763e5ea3991bf816918a1"
+  integrity sha1-X0ID9/UclbiCN2Pl6jmRv4FpGKE=
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"

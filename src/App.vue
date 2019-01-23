@@ -54,6 +54,7 @@ export default {
 @import "~normalize.css/normalize.css";
 @import "assets/common/common.css";
 @import "~animate.css/animate.css";
+@import "~v-sharp/css/index.less";
 //@import "variables/var.less";
 //@import "variables/var.scss";
 //@import "variables/var.styl";
