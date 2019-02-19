@@ -78,7 +78,6 @@ import { XHeader, Tabbar, Marquee, MarqueeItem, Divider } from 'vux'
 // import { home } from '@/api/home'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-
 export default {
   name: 'home',
   components: {
@@ -86,7 +85,7 @@ export default {
     swiperSlide,
     Marquee,
     MarqueeItem,
-    Divider
+    Divider,
   },
   data() {
     return {
@@ -185,9 +184,9 @@ export default {
   },
   mounted(){
     this.swiper.slideTo(1, 1000, false)
-    setInterval(() => {
-      this.$$toast('haha')
-    }, 3000)
+    // setInterval(() => {
+    //   this.$$toast('haha', 2500, 'center')
+    // }, 3000)
   },
   destroyed(){
 

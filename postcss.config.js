@@ -17,10 +17,29 @@ module.exports = {
       mediaQuery: false // 允许在媒体查询中转换`px`
     },
     "postcss-viewport-units":{},
-    "cssnano": {
-      preset: "advanced",
+    cssnano: {
+      // "preset": "default",
+      preset: [
+        'advanced',
+        {
+          discardComments: {
+            removeAll: true
+          },
+          reduceIdents: false,
+          mergeIdents: false,
+          autoprefixer: false,
+          'postcss-zindex': false,
+          zindex: false
+        }
+      ],
+      discardComments: {
+        removeAll: true
+      },
+      reduceIdents: false,
+      mergeIdents: false,
       autoprefixer: false,
-      "postcss-zindex": false
+      'postcss-zindex': false,
+      zindex: false
     }
     // 'postcss-pxtorem': {
     //   rootValue: 75,
