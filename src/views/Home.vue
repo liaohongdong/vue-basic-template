@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div @click="a112"> 112 {{user}} {{loading}} {{liao}} {{index.testModules}}</div>
     <swiper :options="swiperOption" ref="homeSwiper">
       <swiper-slide v-for="(item, i) in swiperList" :key="i">
         <img :src="item">
@@ -78,6 +79,11 @@ import { XHeader, Tabbar, Marquee, MarqueeItem, Divider } from 'vux'
 // import { home } from '@/api/home'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'home',
   components: {
@@ -89,6 +95,7 @@ export default {
   },
   data() {
     return {
+      i: 0,
       title: 'liao',
       swiperList: [
         'http://liaohongdong.cn/jing.jpg',
@@ -171,13 +178,31 @@ export default {
     }
   },
   watch:{},
-  computed:{
+  computed: {
+    ...mapState({user: 'user', loading: `loading`, liao: `liao`, index: `index`}),
+    ...mapGetters({liaouser: 'user', testModule: 'getTestModule'}),
     swiper() {
       return this.$refs.homeSwiper.swiper
-    }
+    },
   },
   methods: {
-
+    ...mapMutations({SET_LOGOUT: 'SET_LOGOUT', getTestModule: 'index/set_getTestModule'}),
+    ...mapActions({LOGOUT: 'LOGOUT', ActionSetGetTestModule: 'index/set_getTestModule'}),
+    a112(){
+      // let a = '123'
+      // console.log(`${a}`)
+      // console.log(this.$store.state.user)
+      // console.log(this.$store)
+      // let s = this.liaouser(10086)
+      // console.log(s)
+      // this.$store.commit('SET_LOGOUT', 'hongdongaaa')
+      // this.SET_LOGOUT('hong')
+      // this.$store.dispatch('LOGOUT', 'lllz')
+      // this.LOGOUT('liaohongdongooo')
+      // this.i += 1
+      // this.getTestModule(this.i)
+      // this.ActionSetGetTestModule(this.i)
+    },
   },
   created(){
 
