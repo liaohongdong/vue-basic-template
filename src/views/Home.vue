@@ -81,6 +81,10 @@
 import { XHeader, Tabbar, Marquee, MarqueeItem, Divider } from 'vux'
 // import { home } from '@/api/home'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'home',
@@ -89,10 +93,11 @@ export default {
     swiperSlide,
     Marquee,
     MarqueeItem,
-    Divider
+    Divider,
   },
   data() {
     return {
+      i: 0,
       title: 'liao',
       swiperList: [
         'http://liaohongdong.cn/jing.jpg',
@@ -175,10 +180,12 @@ export default {
     }
   },
   watch:{},
-  computed:{
+  computed: {
+    ...mapState({user: 'user', loading: `loading`, liao: `liao`, index: `index`}),
+    ...mapGetters({liaouser: 'user', testModule: 'getTestModule'}),
     swiper() {
       return this.$refs.homeSwiper.swiper
-    }
+    },
   },
   methods: {
     openTop(){
