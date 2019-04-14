@@ -1,5 +1,9 @@
 <template>
   <div class="home">
+    <button @click="openTop()">top</button>
+    <button @click="openCenter()">center</button>
+    <button @click="openBottom()">bottom</button>
+    <button @click="openLoading()">loading</button>
     <swiper :options="swiperOption" ref="homeSwiper">
       <swiper-slide v-for="(item, i) in swiperList" :key="i">
         <img :src="item">
@@ -76,7 +80,6 @@
 <script>
 import { XHeader, Tabbar, Marquee, MarqueeItem, Divider } from 'vux'
 // import { home } from '@/api/home'
-import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
@@ -178,16 +181,31 @@ export default {
     }
   },
   methods: {
-
+    openTop(){
+      this.$toast.top('top');
+    },
+    openCenter(){
+      this.$toast.center('center');
+    },
+    openBottom(){
+      this.$toast('bottom');  // or this.$toast.bottom('bottom');
+    },
+    openLoading(){
+      this.$loading('loading...');
+      let self = this;
+      setTimeout(function () {
+        self.$loading.close();
+      }, 2000)
+    },
   },
   created(){
 
   },
   mounted(){
     this.swiper.slideTo(1, 1000, false)
-    setInterval(() => {
-      this.$$toast('haha')
-    }, 3000)
+    // setInterval(() => {
+    //   this.$$toast('haha')
+    // }, 3000)
   },
   destroyed(){
 

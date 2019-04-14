@@ -19,7 +19,12 @@ Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 // vue spa title
 Vue.use(VueMeta)
-Vue.use(vSharp.Toast)
+Vue.use(vSharp.Toast, {
+  type: 'center',
+  duration: 3000,
+  wordWrap: true,
+  width: '150px'
+})
 
 window._vue = new Vue({
   router,

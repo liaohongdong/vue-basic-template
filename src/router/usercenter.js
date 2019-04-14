@@ -1,4 +1,4 @@
-const UserCenter = () => import(/* webpackChunkName: "Home" */ '@/views/userCenter')
+const UserCenter = () => import(/* webpackChunkName: "Home" */ '@/views/userCenter/index')
 const mNavigation = () => import(/* webpackChunkName: "mNavigation" */ '@/components/common/m-navigation')
 
 const router = [
