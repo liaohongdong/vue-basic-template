@@ -5,6 +5,8 @@ import RouterHome from '@/router/home'
 import RouterFind from '@/router/find'
 import RouterUserCenter from '@/router/usercenter'
 
+import 'nprogress/nprogress.css'
+
 // import Home from '../views/Home.vue'
 // import About from '../views/About.vue'
 // const Home = () => import(/* webpackChunkName: "Home" */ '@/views/Home')
@@ -40,6 +42,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
+  console.log(to, from)
   next()
 })
 

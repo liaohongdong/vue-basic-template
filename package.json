@@ -58,6 +58,7 @@
     "v-charts": "^1.19.0",
     "v-sharp": "^1.0.31",
     "vconsole-webpack-plugin": "^1.4.2",
+    "vee-validate": "^2.2.9",
     "vue-awesome-swiper": "^3.1.3",
     "vue-cli-plugin-style-resources-loader": "^0.1.3",
     "vue-loader": "14.2.3",

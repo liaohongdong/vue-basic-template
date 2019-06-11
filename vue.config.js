@@ -78,6 +78,9 @@ module.exports = {
       },
       stylus: {
         // import: path.resolve(__dirname, './src/variables/var.styl'),
+
+        // 'resolve url': true,
+        // import: ['./src/theme']
       },
       less: {
         javascriptEnabled: true
