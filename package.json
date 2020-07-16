@@ -33,7 +33,7 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "lib-flexible": "^0.3.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "moment": "^2.23.0",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
