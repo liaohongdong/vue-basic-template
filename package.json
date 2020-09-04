@@ -35,7 +35,7 @@
     "lib-flexible": "^0.3.2",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
